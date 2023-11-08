@@ -9,22 +9,12 @@ const Cart = ({ cartItems, setCartItems }) => {
         cartItems.forEach((drink) => {
             if (drink.category === 'custom') {
                 console.log("custom drink added to db")
-                handleAddCustomDrink(drink);
+
             }
         });
-        // setCartItems([]);
+        setCartItems([]);
     }
 
-    const handleAddCustomDrink = (drink) => {
-        axios.post('http://localhost:3001/orders', drink)
-            console.log(drink)
-            // .then((response) => {
-            //     console.log(response);
-            // })
-            // .catch((error) => {
-            //     console.log(error);
-            // })
-    }
 
     const handleClearCart = () => {
         if (window.confirm('Are you sure you want to clear your cart?')) {
