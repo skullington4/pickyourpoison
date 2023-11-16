@@ -2,6 +2,7 @@ import React from 'react';
 import Select from 'react-select';
 import Glasses from '../../components/Glasses/Glasses';
 import glasses from '../../Data/glasses';
+import { set } from 'mongoose';
 
 
 export default function Create({cartItems, setCartItems}) {
@@ -68,6 +69,7 @@ const GarnishIngredientOptions = [
     const [selectedMixers, setSelectedMixers] = React.useState([]);
     const [selectedGarnishes, setSelectedGarnishes] = React.useState([]);
     const [drinkName, setDrinkName] = React.useState([]);
+    const [txt, setTxt] = React.useState("");
 
 
     const handleSpiritsChange = (selectedSpirits) => {
@@ -106,7 +108,8 @@ const GarnishIngredientOptions = [
         setSelectedSpirits([]);
         setSelectedMixers([]);
         setSelectedGarnishes([]);
-        setDrinkName([]);
+        setDrinkName("");
+        setTxt("");
     }
 
 
@@ -178,7 +181,7 @@ const GarnishIngredientOptions = [
 
                 <div className="ingredientsContainer">
                     <div className="mediumText">What do you call this?</div>
-                    <input className='drinkName' type="text" id="name" name="name" placeholder="Name your drink" onChange={handleDrinkName} />
+                    <input className='drinkName' type="text" id="name" name="name" placeholder="Name your drink" value={drinkName} onChange={handleDrinkName} />
                 </div>
                 <button className="smallText" type="submit">Add to cart</button>
             </form>
